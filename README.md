@@ -1,2 +1,6 @@
 # MLI-missing-layer-inference
 A Diagnostic Protocol for Structural Blind Spots in Learning-Based Decision Systems
+Introduction
+MLI is a diagnostic protocol for a specific situation: a model's own accuracy metrics look fine, but the system it feeds is getting worse. Standard debugging finds nothing because there is nothing wrong with the model in the way debugging checks for. The problem is upstream of the model — a factor that was never in the data and has no place in the architecture.
+The protocol runs in three phases. Phase I rules out the two more common explanations for this pattern — bad data and a genuinely inadequate model — before assuming anything is structurally missing. Phase II turns a surviving anomaly into one or more specific, evidence-scored hypotheses about what the missing factor is. Phase III decides whether any of those hypotheses justify a real intervention, and assigns ownership, risk limits, and a rollback plan to whatever gets approved.
+It is built for teams running production decision systems — supply chain, healthcare operations, financial risk, public-sector evaluation — where "the model looks fine" has stopped being a satisfying answer to "why did this get worse." It sits beside the model as an observation layer; it does not retrain it, replace it, or require access to its internals.
